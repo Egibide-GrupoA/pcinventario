@@ -8,7 +8,7 @@
         -->
         <record model="ir.actions.act_window" id="ordenador_list_action">
             <field name="name">Inventario PC</field>
-            <field name="res_model">pcinventaro.ordenador</field>
+            <field name="res_model">pcinventario.ordenador</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
@@ -18,7 +18,7 @@
         </record>
         <record model="ir.actions.act_window" id="componentes_list_action">
             <field name="name">Comonentes PC</field>
-            <field name="res_model">pcinventaro.componente</field>
+            <field name="res_model">pcinventario.componente</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
@@ -26,6 +26,39 @@
                 </p>
             </field>
 
+        </record>
+        <record model="ir.actions.act_window" id="categorias_list_action">
+            <field name="name">Categorias Componentes</field>
+            <field name="res_model">pcinventario.categoria</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first categoria
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="incidencias_list_action">
+            <field name="name">Incidencias</field>
+            <field name="res_model">pcinventario.incidencia</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first incidencia
+                </p>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="incidencias_search_view">
+            <field name="name">incidencias.search</field>
+            <field name="model">pcinventario.incidencia</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="arreglada"/>
+                </search>
+            </field>
         </record>
         <!-- top level menu: no parent -->
         <menuitem id="main_openacademy_menu" name="Inventario PC"/>
@@ -40,6 +73,13 @@
                   action="ordenador_list_action"/>
         <menuitem id="componenteses_menu" name="Componentes" parent="openacademy_menu"
                   action="componentes_list_action"/>
+
+        <menuitem id="categorias_menu" name="Categorias" parent="openacademy_menu"
+                  action="categorias_list_action"/>
+
+        <menuitem id="categorias_menu" name="Incidencias" parent="openacademy_menu"
+                  action="incidencias_list_action"/>
+
         <!-- Full id location:
              action="pcinventario.ordenador_list_action"
              It is not required when it is the same module -->
